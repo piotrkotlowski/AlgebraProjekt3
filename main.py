@@ -140,16 +140,18 @@ def main():
 
     firstMulti=np.matmul(U,MatrixSingValus)
     result=np.matmul(firstMulti,np.transpose(EigenVectors))
-    print(result)
+
 
     ####INVERSING
     MatrixSingValustoInverse=ReverseMatrix(MatrixSingValus)
     #print(MatrixSingValustoInverse)
     inverseMulti=np.matmul(EigenVectors,MatrixSingValustoInverse)
     inverseMulti=np.matmul(inverseMulti,np.transpose(U))
-    print(inverseMulti)
 
-    print(np.matmul(inverseMulti,result))
+    print(result)
+    print(inverseMulti)
+    print(np.matmul(np.matmul(inverseMulti,result),inverseMulti)) #ABA=A wlasnosc dziala
+
 
 
 if __name__ == '__main__':
