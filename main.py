@@ -1,6 +1,5 @@
 import copy
 import math
-
 import numpy as np
 import numpy.linalg as nplg
 def Scalar(vector1,vector2):
@@ -148,10 +147,18 @@ def main():
     inverseMulti=np.matmul(EigenVectors,MatrixSingValustoInverse)
     inverseMulti=np.matmul(inverseMulti,np.transpose(U))
 
-    print(result)
-    print(inverseMulti)
+    print(result) #Macierz bazowa
+    print("SPACJA")
+    print(inverseMulti) #Macierz pseudo odwrotna
+    print("SPACJA")
     print(np.matmul(np.matmul(inverseMulti,result),inverseMulti)) #ABA=A wlasnosc dziala
-
+    print("SPACJA")
+    print(np.matmul(np.matmul(result, inverseMulti), result))#BAB=B
+    print("SPACJA")
+    print(np.transpose(np.matmul(inverseMulti,result))) # (AB)^T
+    print("SPACJA")
+    print(np.matmul(inverseMulti,result)) # AB
+    #AB^T==AB
 
 
 if __name__ == '__main__':
