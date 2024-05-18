@@ -161,9 +161,9 @@ def main():
 
     # Noises
 
-    MatrixSingValusNoise = SingValuestoMatrix(a, Noises(SingularValues, 20))
-    firstMultiNoise = np.matmul(U, MatrixSingValusNoise)
-    resultNoise = np.matmul(firstMultiNoise, np.transpose(EigenVectors))
+   # MatrixSingValusNoise = SingValuestoMatrix(a, Noises(SingularValues, 20))
+    #firstMultiNoise = np.matmul(U, MatrixSingValusNoise)
+    #resultNoise = np.matmul(firstMultiNoise, np.transpose(EigenVectors))
 
     firstMulti = np.matmul(U, MatrixSingValus)
     result = np.matmul(firstMulti, np.transpose(EigenVectors))
