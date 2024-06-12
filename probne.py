@@ -1,5 +1,4 @@
 import cmath
-
 from matplotlib.image import imread
 import copy
 import math
@@ -125,6 +124,7 @@ def ReverseMatrix(Matrixinput):
 def Noises(List, k):
     for i in range(k, len(List), 1):
         List[i] = 0
+
     return List
 
 
@@ -141,8 +141,7 @@ def main():
     SingularValues = EigenToSingular(EigenValues)
 
     # SingularValues=np.flip(np.sort(SingularValues))
-
-    MatrixSingValus = SingValuestoMatrix(a, SingularValues)
+    #MatrixSingValus = SingValuestoMatrix(a, SingularValues)
 
     # Liczenie v transponowego
 
@@ -160,23 +159,21 @@ def main():
     # print(np.transpose(EigenVectors))
 
     # Noises
+    k=int(input("Ile chcesz zostawić wartosci osobliwych?"))
+    MatrixSingValusNoise = SingValuestoMatrix(a, Noises(SingularValues, k)) #Zmienna k
 
-   # MatrixSingValusNoise = SingValuestoMatrix(a, Noises(SingularValues, 20))
-    #firstMultiNoise = np.matmul(U, MatrixSingValusNoise)
-    #resultNoise = np.matmul(firstMultiNoise, np.transpose(EigenVectors))
+    firstMultiNoise = np.matmul(U, MatrixSingValusNoise)
+    resultNoise = np.matmul(firstMultiNoise, np.transpose(EigenVectors))
 
-    firstMulti = np.matmul(U, MatrixSingValus)
-    result = np.matmul(firstMulti, np.transpose(EigenVectors))
+   # firstMulti = np.matmul(U, MatrixSingValus)
+   # result = np.matmul(firstMulti, np.transpose(EigenVectors))
 
     from matplotlib import pyplot as plt
 
-    # plt.imshow(resultNoise.real, interpolation='nearest',cmap="gray")
-    # plt.imshow(result.real,interpolation='nearest',cmap="gray")
+    plt.imshow(resultNoise.real, interpolation='nearest',cmap="gray")
+    #plt.imshow(result.real,interpolation='nearest',cmap="gray")
     plt.show()
 
 
 if __name__ == '__main__':
     main()
-
-
-
